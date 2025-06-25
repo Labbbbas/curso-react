@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Counter = () => {
 
     const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        console.log(`El contador cambió a ${count}`)
+    }, [count])
 
     return (
         <div>
