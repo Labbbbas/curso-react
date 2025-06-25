@@ -1,6 +1,7 @@
 import Card from './components/Card'
 import Counter from './components/Counter'
 import ToggleButton from './components/ToggleButton'
+import NameForm from './components/NameForm'
 import './App.css'
 
 function App() {
@@ -9,25 +10,17 @@ function App() {
 
   const info = [
     { title: 'Teresa', description: 'Capibara' },
-    { title: 'Gatita', description: 'Bonita'},
-    { title: 'Ilia', description: 'Topuria'}
+    { title: 'Gatita', description: 'Bonita' },
+    { title: 'Ilia', description: 'Topuria' }
   ]
 
-  return  (
+  return (
     <div>
 
       <h1>Hola Mundo!</h1>
 
-      {
-        info.map((item, index) => (
-          <Card 
-            key={index}
-            title={item.title}
-            description={item.description}
-          />
-        ))
-      }
-      
+      <hr />
+
       <ul>
         {
           items.map((item, index) => (
@@ -36,11 +29,31 @@ function App() {
         }
       </ul>
 
+      <hr />
+
+      {
+        info.map((item, index) => (
+          <Card
+            key={index}
+            title={item.title}
+            description={item.description}
+          />
+        ))
+      }
+
+      <hr />
+
       <Counter />
 
+      <hr />
+
       <ToggleButton />
-      
-    </div> 
+
+      <hr />
+
+      <NameForm />
+
+    </div>
   )
 }
 
