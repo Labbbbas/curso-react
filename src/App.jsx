@@ -2,6 +2,7 @@ import Card from './components/Card'
 import Counter from './components/Counter'
 import ToggleButton from './components/ToggleButton'
 import NameForm from './components/NameForm'
+import StylizedCard from './components/stylizedCard'
 import './App.css'
 
 function App() {
@@ -52,6 +53,10 @@ function App() {
       <hr />
 
       <NameForm />
+
+      <hr />
+
+      <StylizedCard />
 
     </div>
   )
