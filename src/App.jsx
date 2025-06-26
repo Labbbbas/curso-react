@@ -3,7 +3,6 @@ import Counter from './components/Counter'
 import ToggleButton from './components/ToggleButton'
 import NameForm from './components/NameForm'
 import StylizedCard from './components/stylizedCard'
-import './App.css'
 
 function App() {
 
@@ -15,50 +14,57 @@ function App() {
     { title: 'Ilia', description: 'Topuria' }
   ]
 
+  const Separador = () => (
+    <hr className='w-1/2 mx-auto' />
+  )
+
+
   return (
-    <div>
+    <div className='min-h-screen flex justify-center items-center'>
+      <div className='flex flex-col items-center text-center space-y-3 w-full max-w-xl p-4'>
+        <h1 className='font-bold text-3xl text-red-600'>Hola Mundo!</h1>
 
-      <h1>Hola Mundo!</h1>
+        <Separador />
 
-      <hr />
+        <ul className='list-disc'>
+          {
+            items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))
+          }
+        </ul>
 
-      <ul>
+        <Separador />
+
         {
-          items.map((item, index) => (
-            <li key={index}>{item}</li>
+          info.map((item, index) => (
+            <Card
+              key={index}
+              title={item.title}
+              description={item.description}
+            />
           ))
         }
-      </ul>
 
-      <hr />
+        <Separador />
 
-      {
-        info.map((item, index) => (
-          <Card
-            key={index}
-            title={item.title}
-            description={item.description}
-          />
-        ))
-      }
+        <Counter />
 
-      <hr />
+        <Separador />
 
-      <Counter />
+        <ToggleButton />
 
-      <hr />
+        <Separador />
 
-      <ToggleButton />
+        <NameForm />
 
-      <hr />
+        <Separador />
 
-      <NameForm />
+        <StylizedCard />
 
-      <hr />
-
-      <StylizedCard />
-
+      </div>
     </div>
+
   )
 }
 

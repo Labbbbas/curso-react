@@ -9,10 +9,11 @@ const NameForm = () => {
     }
 
     return (
-        <div>
-            <h2>Formulario de nombre</h2>
+        <div className='space-y-1'>
+            <h2 className='font-bold text-xl'>Formulario de nombre</h2>
 
             <input
+                className='mt-2 border text-center cursor-pointer'
                 type="text"
                 placeholder="Ingresa tu nombre"
                 value={name}
