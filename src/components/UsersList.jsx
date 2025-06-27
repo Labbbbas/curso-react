@@ -3,16 +3,42 @@ import { useState, useEffect } from "react"
 const UsersList = () => {
 
     const [users, setUsers] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
+        const fetchUsers = async () => {
+            try {
+                const response = await fetch('https://jsonplaceholder.typicode.com/users')
+
+                if (!response.ok) {
+                    throw new Error('No se pudo obtener la lista de usuarios')
+                }
+
+                const data = await response.json()
                 setUsers(data)
-            })
-            .catch((error) => console.error('Error fetching data: ', error))
+            }
+            catch (error) {
+                setError(error)
+            }
+            finally {
+                setTimeout(() => {
+                    setIsLoading(false)
+                }, 2000)
+            }
+        }
+
+        fetchUsers()
+
     }, [])
+
+    if (isLoading) {
+        return <p>Cargando lista de usuarios...</p>
+    }
+
+    if (error) {
+        return <p>Error: {error.message}</p>
+    }
 
     return (
         <div className='space-y-3'>
