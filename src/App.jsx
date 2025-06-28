@@ -4,6 +4,7 @@ import ToggleButton from './components/ToggleButton'
 import NameForm from './components/NameForm'
 import StylizedCard from './components/stylizedCard'
 import UsersList from './components/UsersList'
+import SearchPosts from './components/searchPosts'
 
 function App() {
 
@@ -66,6 +67,10 @@ function App() {
         <Separador />
 
         <UsersList />
+
+        <Separador />
+
+        <SearchPosts />
       </div>
     </div>
 
