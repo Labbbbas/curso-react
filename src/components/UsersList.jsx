@@ -24,7 +24,7 @@ const UsersList = () => {
             finally {
                 setTimeout(() => {
                     setIsLoading(false)
-                }, 2000)
+                }, 1000)
             }
         }
 
@@ -32,31 +32,29 @@ const UsersList = () => {
 
     }, [])
 
-    if (isLoading) {
-        return <p>Cargando lista de usuarios...</p>
-    }
-
-    if (error) {
-        return <p>Error: {error.message}</p>
-    }
-
     return (
         <div className='space-y-3'>
             <h1 className='font-bold text-2xl'>Lista de usuarios</h1>
-            <ul className='space-y-5'>
-                {
-                    users.map((user) => (
-                        <li className='font-bold text-md text-red-600' key={user.id}>
-                            {user.name}
-                            <div className='font-medium text-black'>
-                                <p>Username: {user.username}</p>
-                                <p>Email: {user.email}</p>
-                                <p>Ciudad: {user.address.city}</p>
-                            </div>
-                        </li>
-                    ))
-                }
-            </ul>
+            {
+                isLoading ? <p>Cargando...</p> :
+                    error ? <p>{error.message}</p> :
+                        <div>
+                            <ul className='space-y-5'>
+                                {
+                                    users.map((user) => (
+                                        <li className='font-bold text-md text-red-600' key={user.id}>
+                                            {user.name}
+                                            <div className='font-medium text-black'>
+                                                <p>Username: {user.username}</p>
+                                                <p>Email: {user.email}</p>
+                                                <p>Ciudad: {user.address.city}</p>
+                                            </div>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+            }
         </div>
     )
 }
