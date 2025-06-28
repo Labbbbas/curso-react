@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className='min-h-screen flex justify-center items-center'>
-      <div className='flex flex-col items-center text-center space-y-3 w-full max-w-xl p-4'>
+      <div className='flex flex-col items-center text-center space-y-3 w-full max-w-xl p-4 py-10'>
         <h1 className='font-bold text-3xl text-red-600'>Hola Mundo!</h1>
 
         <Separador />

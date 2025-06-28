@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ToastContainer, toast } from 'react-toastify'
 
 const SearchPosts = () => {
 
@@ -7,12 +8,19 @@ const SearchPosts = () => {
     const [posts, setPosts] = useState([])
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    const [topic, setTopic] = useState('')
 
     useEffect(() => {
         const fetchPosts = async () => {
+
             setError(null)
+
             try {
-                const response = await fetch(`https://jsonplaceholder.typicode.com/posts?title_like=${query}`)
+                const url = query && topic
+                    ? `https://jsonplaceholder.typicode.com/posts?${topic}_like=${query}`
+                    : 'https://jsonplaceholder.typicode.com/posts'
+
+                const response = await fetch(url)
 
                 if (!response.ok) {
                     throw new Error('No se pudo obtener la lista de posts')
@@ -33,7 +41,16 @@ const SearchPosts = () => {
 
         fetchPosts()
 
-    }, [query])
+    }, [topic, query])
+
+    const searchBy = () => {
+        if (topic) {
+            return `Search by ${topic}`
+        }
+        else {
+            return 'Search'
+        }
+    }
 
     return (
         <div className='space-y-3'>
@@ -46,18 +63,55 @@ const SearchPosts = () => {
                     error ? <p>{error.message}</p> :
 
                         <div className='space-y-3'>
+                            <div className='flex justify-center gap-3'>
+                                <button
+                                    className='cursor-pointer border p-1 px-2 rounded-2xl bg-red-500 text-white'
+                                    onClick={() => {
+                                        setTopic('userId')
+                                        setQuery('')
+                                        setInput('')
+                                    }}
+                                >By userId</button>
+                                <button
+                                    className='cursor-pointer border p-1 px-2 rounded-2xl bg-red-500 text-white'
+                                    onClick={() => {
+                                        setTopic('title')
+                                        setQuery('')
+                                        setInput('')
+                                    }}
+                                >By title</button>
+                                <button
+                                    className='cursor-pointer border p-1 px-2 rounded-2xl bg-red-500 text-white'
+                                    onClick={() => {
+                                        setTopic('body')
+                                        setQuery('')
+                                        setInput('')
+                                    }}
+                                >By body</button>
+                            </div>
 
                             <input
                                 className='border text-center'
                                 type='text'
-                                placeholder='Busca por título'
+                                placeholder={searchBy()}
                                 value={input}
                                 onChange={(event) => setInput(event.target.value)}
                                 onKeyDown={(event) => {
                                     if (event.key === 'Enter') {
-                                        setQuery(input)
+                                        if (!topic && input) {
+                                            toast.info('Selecciona un filtro')
+                                        }
+                                        else {
+                                            setQuery(input)
+                                        }
                                     }
                                 }}
+                            />
+                            <ToastContainer
+                                position="top-right"
+                                autoClose={2000} // 2 segundos
+                                hideProgressBar={true}
+                                pauseOnHover={false}
                             />
 
                             {
@@ -76,7 +130,6 @@ const SearchPosts = () => {
                                     </ul>
 
                                     : <p>No hay coincidencias con <strong>{query}</strong></p>
-
                             }
                         </div>
             }
