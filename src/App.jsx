@@ -5,6 +5,7 @@ import NameForm from './components/NameForm'
 import StylizedCard from './components/stylizedCard'
 import UsersList from './components/UsersList'
 import SearchPosts from './components/searchPosts'
+import CounterUseReducer from './components/CounterUseReducer'
 
 function App() {
 
@@ -71,6 +72,10 @@ function App() {
         <Separador />
 
         <SearchPosts />
+
+        <Separador />
+
+        <CounterUseReducer />
       </div>
     </div>
 
