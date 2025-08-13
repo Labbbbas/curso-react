@@ -6,6 +6,8 @@ import StylizedCard from './components/stylizedCard'
 import UsersList from './components/UsersList'
 import SearchPosts from './components/searchPosts'
 import CounterUseReducer from './components/CounterUseReducer'
+import ThemeButton from './ThemeButton'
+import ThemeProvider from './context/ThemeContext'
 
 function App() {
 
@@ -20,7 +22,6 @@ function App() {
   const Separador = () => (
     <hr className='w-1/2 mx-auto' />
   )
-
 
   return (
     <div className='min-h-screen flex justify-center items-center'>
@@ -76,6 +77,12 @@ function App() {
         <Separador />
 
         <CounterUseReducer />
+
+        <Separador />
+
+        <ThemeProvider>
+          <ThemeButton />
+        </ThemeProvider>
       </div>
     </div>
 
