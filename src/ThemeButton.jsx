@@ -7,7 +7,7 @@ const ThemeButton = () => {
   return (
     <button
       onClick={toggleTheme}
-      className={`rounded-2xl p-2 cursor-pointer ${theme === 'light' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}
+      className={`rounded-2xl p-2 cursor-pointer border ${theme === 'light' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}
     >
       Cambiar tema
     </button>
