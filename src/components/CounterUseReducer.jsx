@@ -17,7 +17,7 @@ const CounterUseReducer = () => {
 
     return (
         <div className='space-y-1.5'>
-            <p className='text-lg font-semibold'>Contador: {state.count}</p>
+            <p className='text-lg font-semibold'>Contador con useReducer: {state.count}</p>
             <div className='flex gap-2'>
 
                 <button
