@@ -8,6 +8,7 @@ import SearchPosts from './components/searchPosts'
 import CounterUseReducer from './components/CounterUseReducer'
 import ThemeButton from './ThemeButton'
 import ThemeProvider from './context/ThemeContext'
+import CounterWithCustomHook from './components/CounterWithCustomHook'
 
 function App() {
 
@@ -83,6 +84,11 @@ function App() {
         <ThemeProvider>
           <ThemeButton />
         </ThemeProvider>
+        
+        <Separador />
+
+        <CounterWithCustomHook />
+        
       </div>
     </div>
 
