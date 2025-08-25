@@ -1,0 +1,32 @@
+{
+
+  "compilerOptions": {
+
+    "target": "esnext",
+
+    "module": "esnext",
+
+    "moduleResolution": "node",
+
+    "strict": true,
+
+    "jsx": "react-jsx",
+
+    "allowJs": true,
+
+    "checkJs": false,
+
+    "esModuleInterop": true,
+
+    "skipLibCheck": true,
+
+    "forceConsistentCasingInFileNames": true
+
+  },
+
+  "include": ["src"],
+
+  "exclude": ["node_modules", "dist"]
+
+}
+

@@ -10,6 +10,8 @@ import ThemeButton from './ThemeButton'
 import ThemeProvider from './context/ThemeContext'
 import CounterWithCustomHook from './components/CounterWithCustomHook'
 import CounterWithReactMemo from './components/CounterWithReactMemo'
+import Button from './components/Button'
+import { ToastContainer, toast } from 'react-toastify'
 
 function App() {
 
@@ -24,6 +26,10 @@ function App() {
   const Separador = () => (
     <hr className='w-1/2 mx-auto' />
   )
+
+  const HandleClick = () => {
+    return toast.info('Ya estoy clickeado')
+  }
 
   return (
     <div className='min-h-screen flex justify-center items-center'>
@@ -85,15 +91,26 @@ function App() {
         <ThemeProvider>
           <ThemeButton />
         </ThemeProvider>
-        
+
         <Separador />
 
         <CounterWithCustomHook />
-        
+
         <Separador />
 
         <CounterWithReactMemo />
-        
+
+        <Separador />
+
+        <Button onclick={HandleClick} label='Click me' />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={2000} // 2 segundos
+          hideProgressBar={true}
+          pauseOnHover={false}
+        />
+
       </div>
     </div>
 
