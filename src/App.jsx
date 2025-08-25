@@ -9,6 +9,7 @@ import CounterUseReducer from './components/CounterUseReducer'
 import ThemeButton from './ThemeButton'
 import ThemeProvider from './context/ThemeContext'
 import CounterWithCustomHook from './components/CounterWithCustomHook'
+import CounterWithReactMemo from './components/CounterWithReactMemo'
 
 function App() {
 
@@ -88,6 +89,10 @@ function App() {
         <Separador />
 
         <CounterWithCustomHook />
+        
+        <Separador />
+
+        <CounterWithReactMemo />
         
       </div>
     </div>
