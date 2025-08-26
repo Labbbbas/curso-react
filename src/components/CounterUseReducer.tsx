@@ -1,8 +1,11 @@
 import { useReducer } from "react";
 
+type State = { count: number }
+type Action = { type: 'increment' | 'decrement' }
+
 const CounterUseReducer = () => {
 
-    const reducer = (state, action) => {
+    const reducer = (state: State, action: Action): State => {
         switch (action.type) {
             case 'increment':
                 return { count: state.count + 1 }
@@ -18,7 +21,7 @@ const CounterUseReducer = () => {
     return (
         <div className='space-y-1.5'>
             <p className='text-lg font-semibold'>Contador con useReducer: {state.count}</p>
-            <div className='flex gap-2'>
+            <div className='flex gap-2 justify-center'>
 
                 <button
                     onClick={() => dispatch({ type: 'decrement' })}
