@@ -12,6 +12,7 @@ import CounterWithCustomHook from './components/CounterWithCustomHook'
 import CounterWithReactMemo from './components/CounterWithReactMemo'
 import Button from './components/Button'
 import { ToastContainer, toast } from 'react-toastify'
+import GreetAndCounterWithTypeScript from './components/GreetAndCounterWithTypeScript'
 
 function App() {
 
@@ -110,6 +111,10 @@ function App() {
           hideProgressBar={true}
           pauseOnHover={false}
         />
+
+        <Separador />
+
+        <GreetAndCounterWithTypeScript />
 
       </div>
     </div>
